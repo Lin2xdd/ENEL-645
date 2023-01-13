@@ -1,0 +1,45 @@
+# Lec 2
+
+# Question:
+parameters vs hyperparameters
+do we also split development set into training set and validation set 
+the bias in test set for the first experiment design???? what's the bias
+step-wise slection to avoid over-fitting?
+
+to split a dataset into training, validation, test? 
+validation set vs test set? just a bigger validation set?
+
+#experiment design
+## train vs validation vs test
+for large dataset, the training time is long, we only do one iteration, that's why we don't do k-fold iterations
+one single dataset split into three, shuffle the data first before splitting
+training set: values for the parameters(path) to select the best model
+test set: to see the generalization of the training set 
+ratio: 80 for training 20 for validation, test set is large enough to select the best performance, very flexible
+### Workflow
+Train model on tarining set, select the best one on validation set, and verify and find problems with test set, and then improve your model on train set, etc
+
+
+## k-fold
+a signgle dataset 
+for small data, we can do multiple iterations to compensate the insufficient data
+- bootstrapping
+
+# Over-fitting
+- Noise also included, goes over the essential trend, poor generalization; sample isn't learned rather just memorized
+- epoch: 1 epoch = 1 complete learning iteration on training 
+   - after each epoch on the training set, go to validation set and calculate the validation error
+   - The turnpoint of the validation error is the best model in terms of fitting
+   - Step-wise selection?
+   - Sometimes we need to select between multiple validation curves more than just one; hyperparameters == models,  we select the best model on each hyperparameter combo, and select the best one of all
+   - no threshold on val error/trainig error as a good indicator of over-fitting
+   - sometimes the curve have multiple minimums
+## Techniques
+- Dropout used in Neural networks
+- Regular regularization for the polynomial example
+- L2 regularization in the loss function?? set the only hyperparameter of lambda by ourselves
+
+
+   
+### Hints
+Linear model: depends on the parameters not independent variables
